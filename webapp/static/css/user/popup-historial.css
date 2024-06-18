@@ -1,0 +1,44 @@
+/* popup-historial */
+#popup-historial {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 58%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    padding: 2%;
+    z-index: 1000;
+    width: 40%;
+    max-height: 60%;
+    min-height: 45%;
+    border-radius: 10px;
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+    scroll-behavior: smooth;
+}
+
+.popup-content-historial {
+    margin-top: 1%;
+    padding: 1%; /* Añade relleno al contenido del popup */
+    width: 100%;
+}
+
+/* Estilo para mensajes de historial de conversaciones */
+.user-responses{
+    text-align: right;
+    background-color: #fff; /* Color de fondo para mensajes del historial */
+    padding: 1%;
+    border-radius: 2%;
+    margin-top: 1%;
+    width: 100%;
+
+}
+.advisor-responses {
+    text-align: left;
+    background-color: #f0f8ff; /* Color de fondo para mensajes del historial */
+    padding: 1%;
+    border-radius: 2%;
+    margin-top: 1%;
+    width: 100%;
+}
