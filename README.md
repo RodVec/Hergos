@@ -22,6 +22,7 @@ cd project_name
 ls -lrt
 ```
 
+For now, always use te project directory
 You will need django to be installed in you computer to run this app. Head over to https://www.djangoproject.com/download/ for the download guide
 
 Download django usig pip
