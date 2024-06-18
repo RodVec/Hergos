@@ -1,0 +1,50 @@
+#popup-dch{
+    position: fixed;
+    left: 30%;
+    background-color: transparent;
+    width: 55%;
+    overflow-y: hidden;
+    bottom: 0%;
+}
+
+.dch-form-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0%;
+    flex: 1;
+}
+
+
+.dch-form-control {
+    resize: none;
+    width: 75%;
+    border-radius: 10px;
+}
+
+.dch-small-text {
+    font-size: small;
+    text-align: center;
+    margin-bottom: 1%;
+}
+
+
+
+
+.dch-btn{
+    color: white;
+    background: #1e428e;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+    border-radius: 15%;
+    font-size: 120%;
+    margin-left: 2%;
+    padding: 1%;
+    padding-left: 1.5%;
+    padding-right: 1.5%;
+}
+.dch-btn:hover {
+    background: #122858;
+}
+
