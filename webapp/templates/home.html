@@ -1,0 +1,662 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Hergos</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Asesor bot for better solutions" />
+        <meta name="keywords" content="Asesor, bot, laboral" />
+        <meta content="Themesbrand" name="Asesor Bot" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        
+        <!-- Favicons -->
+        <link rel="icon" href="{% static 'images/asesorbot2.png' %}" type="image/png" sizes="16x16">
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+        <!-- CSS Files -->
+        <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+        <link href="{% static 'vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+        <link href="{% static '/css/styleblue.css' %}." rel="stylesheet" type="text/css" />
+    </head>
+
+    <body>
+        
+        {% block topbar %}
+        {%include "topbar.html"%}
+        {% endblock %}
+
+        {% block header %}
+        {%include "header.html"%}
+        {% endblock %}
+
+        <!-- Hero Start -->
+        <section class="d-flex align-items-center" id="hero">
+            <div class="container">
+                <div class="hero-text">
+                    <h1 class="font-weight-semibold mb-4 text-white hero-7-title">SOLUCIONES DE ASESORAMIENTO LABORAL</h1>
+                    <h2 class="font-weight-semibold mb-4 text-white hero-7-title">Potencia su trabajo con Inteligencia Artificial</h2>
+                </div>
+            </div>
+            
+            <!-- 
+            <div class="col-xl-4 col-lg-5 ms-lg-auto">
+                <div class="mx-auto rounded form-bg mt-5 mt-lg-0 p-4">
+                    <div class="mb-4"></div>
+                    <form class="registration-form">
+                        <h5 class="form-title mb-4 text-center">Contact Us</h5>
+                        <div class="form-group mb-4">
+                            <label for="exampleFormControlInput1" class="text-muted font-size-15 mb-2">Your Name*</label>
+                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+                        </div>
+                        <div class="form-group mb-4">
+                            <label for="exampleFormControlInput1" class="text-muted font-size-15 mb-2">Your email*</label>
+                            <input type="email" class="form-control" id="exampleFormControlInput2" placeholder="">
+                        </div>
+                        <div class="form-group mb-4">
+                            <label for="comments" class="text-muted form-label">Message</label>
+                            <textarea name="comments" id="comments" rows="4" class="form-control" placeholder="Enter message..."></textarea>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-sm text-uppercase">Get Started</button>
+                        </div>
+                    </form>
+                </div>
+            </div>-->
+        </section>
+        <!-- Hero End -->
+
+        <!-- Services start -->
+        <section class="section" id="services">
+            <div class="container">
+                <div class="row justify-content-center mb-5">
+                    <div class="col-lg-7 text-center">
+                        <h2 class="fw-bold">Nuestros Servicos</h2>
+                        <p class="text-muted">Servicios especializados diseñados para simplificar y mejorar su asesoramiento laboral</p>
+                    </div>
+                </div>
+                <!-- end row -->
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="service-box text-center">
+                            <div class="service-box text-center p-4 shadow">
+                                <div class="icon-mono service-icon avatar-md mx-auto mb-4">
+                                    <img src="{% static 'images/socialsecurity.png'%}" alt="" class="img-fluid d-block mx-auto" style="width: 95px; height: auto;"/>
+                                </div>
+                                <h4 class="mb-3 font-size-22">Orientación sobre la Seguridad Social</h4>
+                                <p class="text-muted mb-0">Obtenga información especializada para optimizar las cotizaciones a la Seguridad Social, garantizando el cumplimiento de la normativa y maximizando los beneficios para sus clientes</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end col -->
+
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="service-box text-center">
+                            <div class="service-box text-center p-4 shadow">
+                                <div class="icon-mono service-icon avatar-md mx-auto mb-4">
+                                    <img src="{% static 'images/sick.png'%}" alt="" class="img-fluid d-block mx-auto" style="width: 65px; height: auto;"/>
+                                </div>
+                                <h4 class="mb-3 font-size-22">Consultas sobre Bajas por Enfermedad</h4>
+                                <p class="text-muted mb-0">Agiliza el proceso de gestión de las bajas por enfermedad, proporcionando repuestas répidas y precisas a las consultas</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end col -->
+
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="service-box text-center">
+                            <div class="service-box text-center p-4 shadow">
+                                <div class="icon-mono service-icon avatar-md mx-auto mb-4">
+                                    <img src="{% static 'images/briefcase.jpg'%}" alt="" class="img-fluid d-block mx-auto" style="width: 80px; height: auto;"/>
+                                </div>
+                                <h4 class="mb-3 font-size-22">Acuerdos de Empleo</h4>
+                                <p class="text-muted mb-0">Simplifique los procedimientos de alta y baja de los empleados, garantizando una gestión eficaz y precisa para sus clientes y su personal</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end col -->
+
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="service-box text-center">
+                            <div class="service-box text-center p-4 shadow">
+                                <div class="icon-mono service-icon avatar-md mx-auto mb-4">
+                                    <img src="{% static 'images/arrangement.jpg'%}" alt="" class="img-fluid d-block mx-auto" style="width: 85px; height: auto;"/>
+                                </div>
+                                <h4 class="mb-3 font-size-22">Acuerdos y normativas laborales</h4>
+                                <p class="text-muted mb-0">Permanezca al día de los últimos acuerdos y normativas laborales. Ofrecemos asesoramiento especializado para garantizar el cumplimiento normativo en todo momento</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end col -->
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container -->
+
+        </section>
+        <!-- Services end -->
+
+        <!-- Features start -->
+        <section class="section bg-light" id="features">
+            <div class="container">
+                <div class="row justify-content-center mb-5">
+                    <div class="col-lg-7 text-center">
+                        <h2 class="fw-bold">Artificial intelligence</h2>
+                        <p class="text-muted">Descubra cómo nuestra avanzada tecnología de inteligencia artificial transforma por completo la experiencia del asesoramiento laboral</p>
+                    </div>                    
+                    <!-- end col -->
+                </div>
+                <!-- end row -->
+                <div class="row align-items-center mb-5">
+                    <div class="col-md-5 order-2 order-md-1 mt-md-0 mt-5">
+                        <h2 class="mb-4">Análisis eficiente</h2>
+                        <p class="text-muted mb-5">Nuestra inteligencia artificial lleva a cabo un análisis rápido y preciso de los datos, agilizando el proceso de asesoramiento y permitiendo respuestas más rápidas a sus consultas</p>
+                        <!-- <a href="javascript: void(0);" class="btn btn-primary">Find out more <i class="icon-xs ms-2" data-feather="arrow-right"></i></a> -->
+                    </div>
+                    <!-- end col -->
+                    <div class="col-md-6 ms-md-auto order-1 order-md-2">
+                        <div class="position-relative">
+                            <div class="ms-5 features-img">
+                                <img src="{% static 'images/juez.jpg'%}" alt="juez" class="img-fluid"/>
+                            </div>
+                        </div>
+                    </div><!-- end col -->
+                </div><!-- end row -->
+                <div class="row align-items-center section pb-0">
+                    <div class="col-md-6">
+                        <div class="position-relative mb-md-0 mb-5">
+                            <div class="me-5 features-img">
+                                <img src="{% static 'images/grafico.jpg'%}" alt="" class="img-fluid d-block mx-auto rounded shadow" />
+                            </div>
+                        </div>
+                    </div><!-- end col -->
+                    <div class="col-md-5 ms-md-auto">
+                        <h2 class="mb-4">Precisión</h2>
+                        <p class="text-muted mb-5">Gracias a algoritmos avanzados, garantizamos un nivel de precisión excepcional en cada recomendación y consulta. La inteligencia artificial se adapta a las complejidades de la normativa laboral para ofrecer respuestas fiables</p>
+                        <!-- <a href="javascript: void(0);" class="btn btn-primary">Find out more <i class="icon-xs ms-2" data-feather="arrow-right"></i></a> -->
+                    </div><!-- end col -->
+                </div><!-- end row -->
+                <div class="row align-items-center section pb-0">
+                    <div class="col-md-5 ms-md-auto">
+                        <h2 class="mb-4">Mejoras tecnológicas</h2>
+                        <p class="text-muted mb-5">Aplicamos actualizaciones continuas para garantizar que nuestros servicios estén siempre optimizados y listos para responder a sus necesidades laborales</p>
+                        <!-- <a href="javascript: void(0);" class="btn btn-primary">Find out more <i class="icon-xs ms-2" data-feather="arrow-right"></i></a> -->
+                    </div><!-- end col -->
+                    <div class="col-md-6">
+                        <div class="position-relative mb-md-0 mb-5">
+                            <div class="me-5 features-img">
+                                <img src="{% static 'images/clientes.jpg'%}" alt="" class="img-fluid d-block mx-auto rounded shadow" />
+                            </div>
+                        </div>
+                    </div><!-- end col -->
+                </div><!-- end row -->
+            </div>
+            <!-- end container -->
+        </section>
+        <!-- Features end -->
+
+        <section class="section bg-gradient-primary" id="demostration">
+            <div class="bg-overlay-img"></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="text-center">
+                            <h1 class="text-white mb-4">Optimice sus procesos de trabajo hoy mismo</h1>
+                            <p class="text-white mb-5 font-size-16">Descubra cómo mejorar su eficiencia y gestión administrativa. Estamos aquí para ayudarle a superar los retos laborales y ofrecerle soluciones adaptadas a sus necesidades</p>
+                            <a href="#contact" class="btn btn-lg btn-light">Contáctanos</a>
+                        </div>
+                    </div>
+                    <!-- end col -->
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container -->
+        </section>
+        <!-- Cta end -->
+
+        <!-- Pricing start -->
+        <section class="section" id="pricing">
+            <div class="container">
+                <div class="row justify-content-center mb-5">
+                    <div class="col-lg-7 text-center">
+                        <h2 class="fw-bold">Tarifas</h2>
+                        <p class="text-muted">Plan de precios adhoc con tus objetivos</p>
+                    </div>
+                </div>
+                <!-- end row -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="text-center mb-4 pricing-tab">
+                            <ul id="pricingpills-tab" role="tablist">
+                                <li class="new-pills d-inline-block">
+                                    <a class="price-link active" id="pills-monthly-tab" data-bs-toggle="pill" href="#pills-monthly" role="tab" aria-controls="pills-monthly" aria-selected="true">Pago Mensual</a>
+                                </li>
+                                <li class="new-pills d-inline-block">
+                                    <a class="price-link" id="pills-yearly-tab" data-bs-toggle="pill" href="#pills-yearly" role="tab" aria-controls="pills-yearly" aria-selected="false">Pago Anual</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-content" id="pricingpills-tabContent">
+                            <div class="tab-pane fade show active" id="pills-monthly" role="tabpanel" aria-labelledby="pills-monthly-tab">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="card plan-card mt-4 rounded text-center border-0 shadow overflow-hidden">
+                                            <div class="card-body px-4 py-5">
+                                                <!-- <div class="icon-mono avatar-md bg-soft-primary text-primary rounded mx-auto mb-5"><i class="icon-lg" data-feather="circle"></i></div> -->
+                                                <div class="icon-mono avatar-md bg-soft-primary rounded mx-auto mb-5 p-3">
+                                                    <img src="{% static 'images/plata.png'%}" alt="" class="img-fluid d-block mx-auto" style="width: 100px; height: auto;"/>
+                                                </div>
+                                                <h4 class="text-uppercase mb-4 pb-1"><span class="fw-bold">Plata</span></h4>
+                                                <p class="text-muted">Hasta 3 usuarios</p>
+                                                <p class="text-muted">Soporte Técnico</p>
+                                                <p class="font-size-16 font-weight-semibold mb-4 price-tag">50 €/Mes</p>
+                                                <a href="#contact" class="btn btn-soft-primary">Contactanos</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end col -->
+                                    <div class="col-lg-4">
+                                        <div class="card plan-card mt-4 rounded text-center border-0 shadow overflow-hidden">
+                                            <div class="card-body px-4 py-5">
+                                                <span class="badge badge-primary pricing-badge shadow-lg">Más Popular</span>
+                                                <!-- <div class="icon-mono avatar-md bg-soft-primary text-primary rounded mx-auto mb-5"><i class="icon-lg" data-feather="square"></i></div> -->
+                                                <div class="icon-mono avatar-md bg-soft-primary rounded mx-auto mb-5 p-3">
+                                                    <img src="{% static 'images/oro.png'%}" alt="" class="img-fluid d-block mx-auto" style="width: 100px; height: auto;"/>
+                                                </div>
+                                                <h4 class="text-uppercase mb-4 pb-1"><span class="fw-bold">Oro</span></h4>
+                                                <p class="text-muted">Hasta 6 usuarios</p>
+                                                <p class="text-muted">Soporte Técnico</p>
+                                                <p class="font-size-16 font-weight-semibold mb-4 price-tag">65 €/Mes</p>
+                                                <a href="#contact" class="btn btn-soft-primary">Contactanos</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end col -->
+                                    <div class="col-lg-4">
+                                        <div class="card plan-card mt-4 rounded text-center border-0 shadow overflow-hidden">
+                                            <div class="card-body px-4 py-5">
+                                                <!-- <div class="icon-mono avatar-md bg-soft-primary text-primary rounded mx-auto mb-5"><i class="icon-lg" data-feather="triangle"></i></div> -->
+                                                <div class="icon-mono avatar-md bg-soft-primary rounded mx-auto mb-5 p-3">
+                                                    <img src="{% static 'images/platino.png'%}" alt="" class="img-fluid d-block mx-auto" style="width: 100px; height: auto;"/>
+                                                </div>
+                                                <h4 class="text-uppercase mb-4 pb-1"><span class="fw-bold">Platino</span></h4>
+                                                <p class="text-muted">Hasta 10 usuarios</p>
+                                                <p class="text-muted">Soporte Técnico</p>
+                                                <p class="font-size-16 font-weight-semibold mb-4 price-tag">90 €/Mes</p>
+                                                <a href="#contact" class="btn btn-soft-primary">Contactanos</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end col -->
+                                </div>
+                                <!-- end row -->
+                            </div>
+                            <!-- end monthly tab pane -->
+
+                            <div class="tab-pane fade" id="pills-yearly" role="tabpanel" aria-labelledby="pills-yearly-tab">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="card plan-card mt-4 rounded text-center border-0 shadow overflow-hidden">
+                                            <div class="card-body px-4 py-5">
+                                                <!-- <div class="icon-mono avatar-md bg-soft-primary text-primary rounded mx-auto mb-5"><i class="icon-lg" data-feather="circle"></i></div> -->
+                                                <div class="icon-mono avatar-md bg-soft-primary rounded mx-auto mb-5 p-3">
+                                                    <img src="{% static 'images/plata.png'%}" alt="" class="img-fluid d-block mx-auto" style="width: 100px; height: auto;"/>
+                                                </div>
+                                                <h4 class="text-uppercase mb-4 pb-1"><span class="fw-bold">Plata</span></h4>
+                                                <p class="text-muted">Hasta 3 usuarios</p>
+                                                <p class="text-muted">Soporte Técnico</p>
+                                                <p class="font-size-16 font-weight-semibold mb-4 price-tag">45 €/Mes</p>
+                                                <a href="#contact" class="btn btn-soft-primary">Contactanos</a>
+                                            </div>
+                                            <!-- end cardbody -->
+                                        </div>
+                                        <!-- end card -->
+                                    </div>
+                                    <!-- end col -->
+                                    <div class="col-lg-4">
+                                        <div class="card plan-card mt-4 rounded text-center border-0 shadow overflow-hidden">
+                                            <div class="card-body px-4 py-5">
+                                                <!-- <div class="icon-mono avatar-md bg-soft-primary text-primary rounded mx-auto mb-5"><i class="icon-lg" data-feather="square"></i></div> -->
+                                                <div class="icon-mono avatar-md bg-soft-primary rounded mx-auto mb-5 p-3">
+                                                    <img src="{% static 'images/oro.png'%}" alt="" class="img-fluid d-block mx-auto" style="width: 100px; height: auto;"/>
+                                                </div>
+                                                <h4 class="text-uppercase mb-4 pb-1"><span class="fw-bold">Oro</span></h4>
+                                                <p class="text-muted">Hasta 6 usuarios</span></p>
+                                                <p class="text-muted">Soporte Técnico</p>
+                                                <p class="font-size-16 font-weight-semibold mb-4 price-tag">60 €/Mes</p>
+                                                <a href="#contact" class="btn btn-soft-primary">Contactanos</a>
+                                            </div>
+                                            <!-- end cardbody -->
+                                        </div>
+                                        <!-- end card -->
+                                    </div>
+                                    <!-- end col -->
+                                    <div class="col-lg-4">
+                                        <div class="card plan-card mt-4 rounded text-center border-0 shadow overflow-hidden">
+                                            <div class="card-body px-4 py-5">
+                                                <span class="badge badge-primary pricing-badge shadow-lg">Más Popular</span>
+                                                <!-- <div class="icon-mono avatar-md bg-soft-primary text-primary rounded mx-auto mb-5"><i class="icon-lg" data-feather="triangle"></i></div> -->
+                                                <div class="icon-mono avatar-md bg-soft-primary rounded mx-auto mb-5 p-3">
+                                                    <img src="{% static 'images/platino.png'%}" alt="" class="img-fluid d-block mx-auto" style="width: 100px; height: auto;"/>
+                                                </div>
+                                                <h4 class="text-uppercase mb-4 pb-1"><span class="fw-bold">Platino</span></h4>
+                                                <p class="text-muted">UHasta 10 usuarios</span></p>
+                                                <p class="text-muted">Soporte Técnico</p>
+                                                <p class="font-size-16 font-weight-semibold mb-4 price-tag">80 €/Mes</p>
+                                                <a href="#contact" class="btn btn-soft-primary">Contactanos</a>
+                                            </div>
+                                            <!-- end cardbody -->
+                                        </div>
+                                        <!-- end card -->
+                                    </div>
+                                    <!-- end col -->
+                                </div>
+                            </div>
+                            <!-- end yearly tab pane -->
+                        </div>
+                        <!-- end tab content -->
+                    </div>
+                    <!-- end col -->
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container -->
+        </section>
+        <!-- Pricing end -->
+
+        <!-- Team start -->
+        <section class="section bg-light" id="team">
+            <div class="container">
+                <div class="row justify-content-center mb-4">
+                    <div class="col-lg-7 text-center">
+                        <h2 class="fw-bold">Quienes Somos</h2>
+                        <!-- <p class="text-muted">HOLA</p> -->
+                    </div>
+                    <!-- end col -->
+                </div>
+                <!-- end row -->
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="team-box mt-4 position-relative overflow-hidden rounded text-center shadow">
+                            <div class="position-relative overflow-hidden">
+                                <img src="{% static 'images/Rodrigo.jpg'%}" alt="" class="img-fluid d-block mx-auto" />
+                                <ul class="list-inline p-3 mb-0 team-social-item">
+                                    <li class="list-inline-item mx-3">
+                                        <a href="https://www.linkedin.com/in/rodrigo-vecino/" class="team-social-icon h-primary" target="_blank" rel="noopener noreferrer" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="p-4">
+                                <h5 class="font-size-19 mb-1">Rodrigo Vecino</h5>
+                                <p class="text-muted text-uppercase font-size-14 mb-0">CEO</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end col -->
+
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="team-box mt-4 position-relative overflow-hidden rounded text-center shadow">
+                            <div class="position-relative overflow-hidden">
+                                <img src="{% static 'images/Rodrigo.jpg'%}" alt="" class="img-fluid d-block mx-auto" />
+                                <ul class="list-inline p-3 mb-0 team-social-item">
+                                    <li class="list-inline-item mx-3">
+                                        <a href="https://www.linkedin.com/in/rodrigo-vecino/" class="team-social-icon h-primary" target="_blank" rel="noopener noreferrer" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="p-4">
+                                <h5 class="font-size-19 mb-1">Rodrigo Vecino</h5>
+                                <p class="text-muted text-uppercase font-size-14 mb-0">CTO</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end col -->
+
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="team-box mt-4 position-relative overflow-hidden rounded text-center shadow">
+                            <div class="position-relative overflow-hidden">
+                                <img src="{% static 'images/santi.jpg'%}" alt="" class="img-fluid d-block mx-auto" />
+                                <ul class="list-inline p-3 mb-0 team-social-item">
+                                    <li class="list-inline-item mx-3">
+                                        <a href="https://www.linkedin.com/in/rodrigo-vecino/" class="team-social-icon h-primary" target="_blank" rel="noopener noreferrer" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="p-4">
+                                <h5 class="font-size-19 mb-1">Santiago Divasson</h5>
+                                <p class="text-muted text-uppercase font-size-14 mb-0">CMO</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end col -->
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container -->
+        </section>
+        <!-- Team end -->
+
+        <!-- Blog start -->
+        <section class="section" id="blog">
+            <div class="container">
+                <div class="row justify-content-center mb-4">
+                    <div class="col-lg-7 text-center">
+                        <h2 class="fw-bold">Conoce a Nuestros Clientes</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="card mt-4 border-0 shadow">
+                            <div class="card-body p-4">
+                                <span class="badge badge-soft-primary">UI & UX Design</span>
+                                <h4 class="font-size-22 my-4"><a href="javascript: void(0);">Step bt step to conduct usability testing</a></h4>
+                                <p class="text-muted">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+                                <div class="d-flex align-items-center mt-4 pt-2">
+                                    <img src="{% static 'images/Rodrigo Vecino 11-11-2023.jpg'%}" class="rounded-circle avatar-sm me-3" alt="..." style="width: 50px; height: 50px;"/>
+                                    <div class="flex-body">
+                                        <h5 class="font-size-17 mb-0">Rodrigo Vecino</h5>
+                                        <p class="text-muted mb-0 font-size-14">Designer, New York</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end col -->
+
+                    <div class="col-lg-4">
+                        <div class="card mt-4 border-0 shadow">
+                            <div class="card-body p-4">
+                                <span class="badge badge-soft-primary">CEO</span>
+                                <h4 class="font-size-22 my-4"><a href="javascript: void(0);">Increase conversion rate from ad to landing page</a></h4>
+                                <p class="text-muted">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+                                <div class="d-flex align-items-center mt-4 pt-2">
+                                    <img src="{% static 'images/Rodrigo Vecino 11-11-2023.jpg'%}" class="rounded-circle avatar-sm me-3" alt="..." style="width: 50px; height: 50px;"/>
+                                    <div class="flex-body">
+                                        <h5 class="font-size-17 mb-0">Rodrigo Vecino</h5>
+                                        <p class="text-muted mb-0 font-size-14">Designer, New York</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end col -->
+
+                    <div class="col-lg-4">
+                        <div class="card mt-4 border-0 shadow">
+                            <div class="card-body p-4">
+                                <span class="badge badge-soft-primary">Developer</span>
+                                <h4 class="font-size-22 my-4"><a href="javascript: void(0);">Why small business should start marketing</a></h4>
+                                <p class="text-muted">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+                                <div class="d-flex align-items-center mt-4 pt-2">
+                                    <img src="{% static 'images/Rodrigo Vecino 11-11-2023.jpg'%}" class="rounded-circle avatar-sm me-3" alt="..." style="width: 50px; height: 50px;"/>
+                                    <div class="flex-body">
+                                        <h5 class="font-size-17 mb-0">Rodrigo Vecino</h5>
+                                        <p class="text-muted mb-0 font-size-14">Designer, New York</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end col -->
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container -->
+        </section>
+        <!-- Blog end -->
+
+        <!-- Contact us start -->
+        <section class="section" id="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h2 class="fw-bold mb-4">Contáctanos</h2>
+                        <p class="text-muted mb-5">¡Estamos encantados de escucharte! Si tienes alguna pregunta, comentario o simplemente quieres saludar, no dudes en ponerte en contacto con nosotros. Completa el formulario a continuación y te responderemos lo antes posible</p>
+                       
+                        <div>
+                            <form method="post" name="myForm" onsubmit="return validateForm()" action="{% url 'contact_form' %}">
+                                {% csrf_token %}
+                                <p id="error-msg"></p>
+                                <div id="simple-msg"></div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="mb-4">
+                                            <label for="name" class="text-muted form-label">Nombre</label>
+                                            <input name="name" id="name" type="text" class="form-control" placeholder="Ej: Rodrigo" >
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="mb-4">
+                                            <label for="email" class="text-muted form-label">Correo Electrónico</label>
+                                            <input name="email" id="email" type="email" class="form-control" placeholder="Ej: rodrigo@gmail.com">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="mb-4">
+                                            <label for="subject" class="text-muted form-label">Asunto</label>
+                                            <input type="text" class="form-control" id="subject" name="subject" placeholder="Ej: Información sobre el servicio" />
+                                        </div>
+    
+                                        <div class="mb-4 pb-2">
+                                            <label for="message" class="text-muted form-label">Mensaje</label>
+                                            <textarea name="message" id="message" rows="4" class="form-control" placeholder="Escribe tu mensaje aquí"></textarea>
+                                        </div>
+                                        
+                                        {% if messages %}
+                                            {% for message in messages %}
+                                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                                    <p>Mensaje enviado, contactaremos con usted lo antes posible</p>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    
+
+                                        <button type="submit" id="submit" name="send" class="btn btn-primary">Send Message</button>
+                                        
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        
+                    </div>
+                    <!-- end col -->
+
+                    <div class="col-lg-5 ms-lg-auto">
+                        <img src="{% static 'images/callcenter.jpg' %}" alt="" class="img-fluid d-block" />
+                    </div>
+                    <!-- end col -->
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container -->
+        </section>
+        <!-- Contact us end -->
+
+
+
+
+        <!-- Style switcher -->
+        <div id="style-switcher">
+            <div class="bottom">
+                <a href="javascript: void(0);" id="mode" class="mode-btn text-white">
+                    <i class="mdi mdi-white-balance-sunny mode-light"></i>
+                    <i class="mdi mdi-moon-waning-crescent mode-dark"></i>
+                </a>
+                <a href="javascript: void(0);" class="settings" onclick="toggleSwitcher()"><i class="mdi mdi-cog  mdi-spin"></i></a>
+            </div>
+        </div>
+        <!-- end container -->
+
+        <div id="preloader"></div>
+        <a href="#hero" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+
+
+        <script>
+            // JavaScript para cambiar entre modos claro y oscuro
+            function toggleSwitcher() {
+                document.body.classList.toggle('dark-mode');
+            }
+    
+            // JavaScript para cambiar entre modos claro y oscuro al hacer clic en el botón
+            document.getElementById('mode').addEventListener('click', toggleSwitcher);
+        </script>
+
+
+        <!-- Vendor JS Files -->
+        <!-- <script src="{% static 'vendor/purecounter/purecounter_vanilla.js'%}"></script> -->
+        <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+        <!-- <script src="{% static 'vendor/glightbox/js/glightbox.min.js'%}"></script>
+        <script src="{% static 'vendor/swiper/swiper-bundle.min.js'%}"></script>
+        <script src="{% static 'vendor/php-email-form/validate.js'%}"></script> -->
+
+        <!-- Template Main JS File -->
+        <script src="{% static 'js/main.js'%}"></script>
+
+
+        <section id="popup" class="container">
+            <div class="container">
+                <div class="row">
+                    <div class="contentn">
+                        <h3>
+                            <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-body-alt-color u-btn-1"
+                                href="{% url 'policy' %}">Cookies &amp; Privacy Policy</a>
+                        </h3>
+                        <p> Hergos usa cookies para mejorar su experiencia en nuestro sitio web.
+                            Al continuar navegando por este sitio, acepta nuestro uso de cookies. 
+                            <a href="{% url 'policy' %}">Más información</a> 
+                        </p>
+                        <div class="u-align-right u-container-style u-layout-cell u-right-cell u-size-14-lg u-size-14-xl u-size-17-md u-size-17-sm u-size-17-xs u-layout-cell-2">
+                            <div class="container">
+                                <button class="button" onclick="acceptCookies()">Aceptar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                if (!localStorage.getItem('cookiesAccepted')) {
+                    document.getElementById('popup').style.display = 'block';
+                }
+            });
+
+            function acceptCookies() {
+                localStorage.setItem('cookiesAccepted', 'true');
+                document.getElementById('popup').style.display = 'none';
+            }
+        </script>
+    </body>
+
+    {% block footer %}
+    {%include "footer.html"%}
+    {%include "copyright.html"%}
+    {% endblock %}
+</html>

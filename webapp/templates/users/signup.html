@@ -1,0 +1,76 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+        <title>Hergos · Log In</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Hergos for better solutions" />
+        <meta name="keywords" content="Asesor, bot, laboral" />
+        <meta content="Themesbrand" name="Asesor Bot" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        
+        <!-- Favicons -->
+        <link rel="icon" href="{% static 'images/asesorbot2.png' %}" type="image/png" sizes="16x16">
+
+        <!-- CSS Files -->
+        <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static '/css/styleblue.css' %}." rel="stylesheet" type="text/css" />
+
+        <style>
+            html,
+            body {
+                height: 100%;
+            }
+        </style>
+    </head>
+
+    <body style="overflow: hidden;">
+
+        {% block header %}
+        {%include "header_empty.html"%}
+        {% endblock %}
+
+        <div class="container">
+            <div class="d-flex justify-content-end mt-2">
+                <a href="{% url 'home' %}" class="btn btn-outline-primary me-2">Volver atrás</a>
+                <a href="{% url 'login' %}" class="btn btn-primary">Iniciar sesión</a>
+            </div>
+        </div>
+
+        <div class="signin">
+            <div class="container">
+                    <div class="in">
+                        <a class="volver" href="{% url 'home' %}">
+                            <div class="circle">&larr;</div>
+                            Volver
+                        </a>
+                        <form method="post" class="login-form" style="display: flex; flex-direction: column; max-height: 70vh; overflow-y: scroll; scroll-behavior: smooth; scrollbar-gutter: stable;">
+                            <h2>Sign up</h2>
+                            
+                            {% if form.errors %}
+                                <div class="error-message" style="color: red;">
+                                    {{ form.errors.email }}
+                                </div>
+                            {% endif %}
+
+                            {% csrf_token %}
+                            {{ form.as_p }}
+
+                            <div class="my-3">
+                                <div class="loading">Loading</div>
+                                <div class="error-message"></div>
+                            </div>
+
+                            <button type="submit" class="button">Sign up</button>
+                        </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- JS Files -->
+        <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+        <script src="{% static 'js/main.js'%}"></script>
+    </body>
+</html>

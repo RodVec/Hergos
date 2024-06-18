@@ -1,0 +1,42 @@
+{%load static%}
+<footer id="footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-3 col-md-6 footer-contact">
+                    <h3>Hergos</h3>
+                    <p>
+                        <strong>Teléfono de Contacto:</strong><a href="tel:+34620598433">+34 620 59 84 33</a><br>
+                        <strong>Correo electrónico:</strong> <a href="mailto:hergos.soporte@gmail.com">hergos.soporte@gmail.com</a><br>
+                    </p>
+                </div>
+
+                <div class="col-lg-2 col-md-6 footer-links">
+                    <h4>Enlaces de interés</h4>
+                    <ul>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#team">Equipo</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#contact">Contáctanos</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2 col-md-6 footer-links">
+                    <h4></h4>
+                    <ul>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#services">Servicios</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="{% url 'policy' %}">Política de Privacidad & Coockies</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 col-md-6 footer-newsletter">
+                    <h4>Descargar folleto</h4>
+                    <a href="{% static '/folleto.pdf '%}" class="btn scrollto" download><span
+                            class="d-none d-md-inline"></span>Folleto</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</footer>

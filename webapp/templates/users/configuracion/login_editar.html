@@ -1,0 +1,68 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+        <title>Hergos · Log In</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Hergos for better solutions" />
+        <meta name="keywords" content="Hergos, bot, laboral" />
+        <meta content="Themesbrand" name="Hergos" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+        <!-- Favicons -->
+        <link rel="icon" href="{% static 'images/asesorbot2.png' %}" type="image/png" sizes="16x16">
+
+        <!-- CSS Files -->
+        <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static '/css/styleblue.css' %}." rel="stylesheet" type="text/css" />
+
+        <style>
+            html,
+            body {
+                height: 100%;
+            }
+        </style>
+    </head>
+
+    <body class="flex-grow-1" style="height: 100%; overflow: hidden;">
+
+        {% block header %}
+        {%include "header_empty.html"%}
+        {% endblock %}
+
+        <div class="signin flex-grow-1">
+            <div class="container in flex-grow-1">
+                <a class="volver" href="{% url 'configuracion' %}">
+                    <div class="circle">&larr;</div>
+                    Volver
+                </a>
+                <form method="post" class="login-form">
+                    <h2>Inicio de Sesión</h2>
+                    <p>Por seguridad, vuelva a establecer sus credenciales para acceder a su información</p>
+
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <strong>Error</strong> {{message}}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+
+                    {% csrf_token %}
+                    {{ form.as_p }}
+
+                    <button type="submit" class="button">Iniciar Sesión</button>
+                    <span class="separator"></span>
+                    <p><a href="{% url 'password_reset' %}">¿Olvidates tu contraseña?</a></p>
+                </form>
+            </div>
+        </div>
+
+        <!-- JS Files -->
+        <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+        <script src="{% static 'js/main.js'%}"></script>
+    </body>
+</html>

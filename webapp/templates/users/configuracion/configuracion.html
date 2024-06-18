@@ -1,0 +1,260 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Hergos</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Hergos Ayuda" />
+        <meta name="keywords" content="Hergos, bot, laboral" />
+        <meta content="Themesbrand" name="Asesor Bot" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+
+        <!-- Favicons -->
+        <link rel="icon" href="{% static 'images/asesorbot2.png' %}" type="image/png" sizes="16x16">
+
+        <!-- CSS Files -->
+        <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static '/css/styleblue.css' %}." rel="stylesheet" type="text/css" />
+        <link href="{% static '/css/user_view.css' %}." rel="stylesheet" type="text/css" />
+        <link href="{% static '/css/user/configuracion.css' %}." rel="stylesheet" type="text/css" />
+
+        <style>
+            html,
+            body {
+                height: 100%;
+            }
+        </style>
+
+    </head>
+
+    <body style="overflow: hidden;">
+        {% block header %}
+        {% include "header_user.html" %}
+        {% endblock %}
+        <div style="display: grid; grid-template-columns: auto 1fr; height:100%;">
+            <div class="sidebar" style="overflow: hidden;">
+                <h2>Configuración</h2>
+                <ul>
+                    <li><a href="#" onclick="showSection('usuario')">Usuario</a></li>
+                    <li><a href="#" onclick="showSection('plan')">Plan de Uso</a></li>
+                    <li><a href="#" onclick="showSection('seguridad')">Seguridad</a></li>
+                    <li><a href="#" onclick="showSection('privacidad')">Privacidad</a></li>
+                    <li><a href="#" onclick="showSection('ayuda')">Ayuda y Soporte</a></li>
+                </ul>
+            </div>
+
+            <div class="content" style="overflow: scroll; scroll-behavior: smooth; overflow-y: scroll;">
+
+                <section id="usuario" class="active">
+                    <div id="first_part">
+                        <form method="post">
+                            <h2>Usuario</h2>
+                            {% csrf_token %}
+
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    <strong>Cambios guardados correctamente</strong>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                                {% endfor %}
+                            {% endif %}
+
+                            <div>Nombre: {{user.name}}</div>
+                            <div>Apellidos: {{user.last_name}}</div>
+                            <div>Email: {{user.email}}</div>
+                            <div>Teléfono: {{user.phone}}</div>
+                            <div>País: {{user.country}}</div>
+                            <div>Ciudad: {{user.city}}</div>
+                            <!-- <div>Código de Uso: {{user.code}}</div> -->
+                            <div>Compañía: {{user.company_name}}</div>
+                            <div>
+                                <br><a class="button" href="{% url 'user_login_editar' %}">Editar Información</a>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+                
+                <section id="plan">
+                    <div id="first_part">
+                        <h2>Plan de Uso</h2>
+                        <div>
+                            Para adaptarnos más a las necesidades de tu empresa, te ofrecemos diferentes planes de uso.<br>
+                            Cada plan tiene un límite de usuarios y de consultas al mes.<br>
+                            En caso de necesitar más consultas, puedes contratar un plan superior o contactarnosa través del mail de soporte: <i class="bi bi-envelope"></i> <a href="mailto:hergos.soporte@gmail.com">hergos.soporte@gmail.com</a><br>
+                            <br>
+                        </div>
+
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="tab-content" id="pricingpills-tabContent">
+                                        <div class="tab-pane fade show active" id="pills-monthly" role="tabpanel" aria-labelledby="pills-monthly-tab">
+                                            <div class="row">
+                                                
+                                                <div class="col-lg-4">
+                                                    <div class="card plan-card mt-4 rounded text-center border-0 shadow overflow-hidden">
+                                                        <div class="card-body">
+                                                            <div class="icon-mono avatar-md bg-soft-primary rounded mx-auto mb-5 p-3">
+                                                                <img src="{% static 'images/plata.png'%}" alt="" class="img-fluid d-block mx-auto" style="width: 100px; height: auto;"/>
+                                                            </div>
+                                                            <h4 class="text-uppercase mb-4 pb-1"><span class="fw-bold">Plata</span></h4>
+                                                            <p class="text-muted">Hasta 3 usuarios</p>
+                                                            <p class="text-muted">Hasta 100 preguntas mensuales</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- end col -->
+                                                <div class="col-lg-4">
+                                                    <div class="card plan-card mt-4 rounded text-center border-0 shadow overflow-hidden">
+                                                        <div class="card-body">
+                                                            <span class="badge badge-primary pricing-badge shadow-lg">Más Popular</span>
+                                                            <div class="icon-mono avatar-md bg-soft-primary rounded mx-auto mb-5 p-3">
+                                                                <img src="{% static 'images/oro.png'%}" alt="" class="img-fluid d-block mx-auto" style="width: 100px; height: auto;"/>
+                                                            </div>
+                                                            <h4 class="text-uppercase mb-4 pb-1"><span class="fw-bold">Oro</span></h4>
+                                                            <p class="text-muted">Hasta 6 usuarios</p>
+                                                            <p class="text-muted">Hasta 100 preguntas mensuales</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- end col -->
+                                                <div class="col-lg-4">
+                                                    <div class="card plan-card mt-4 rounded text-center border-0 shadow overflow-hidden">
+                                                        <div class="card-body">
+                                                            <div class="icon-mono avatar-md bg-soft-primary rounded mx-auto mb-5 p-3">
+                                                                <img src="{% static 'images/platino.png'%}" alt="" class="img-fluid d-block mx-auto" style="width: 100px; height: auto;"/>
+                                                            </div>
+                                                            <h4 class="text-uppercase mb-4 pb-1"><span class="fw-bold">Platino</span></h4>
+                                                            <p class="text-muted">Hasta 10 usuarios</p>
+                                                            <p class="text-muted">Hasta 100 preguntas mensuales</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="tab-content" id="pricingpills-tabContent">
+                                        <div class="row">
+                                            <div class="card plan-card mt-4 rounded text-center border-0 shadow overflow-hidden">
+                                                <div class="card-body d-flex align-items-center">
+                                                    <div class="icon-mono avatar-md bg-soft-primary rounded mx-auto mb-5 p-3">
+                                                        <h4 class="text-uppercase mb-4 pb-1"><span class="fw-bold">Su Plan</span></h4>
+                                                        {% if user.plan == 'Plata' %}
+                                                            <img src="{% static 'images/plata.png'%}" alt="" class="img-fluid d-block mx-auto" style="width: 100px; height: auto;"/>
+                                                        {% elif user.plan == 'Oro' %}
+                                                            <img src="{% static 'images/oro.png'%}" alt="" class="img-fluid d-block mx-auto" style="width: 100px; height: auto;"/>
+                                                        {% elif user.plan == 'Platino' %}
+                                                            <img src="{% static 'images/platino.png'%}" alt="" class="img-fluid d-block mx-auto" style="width: 100px; height: auto;"/>
+                                                        {% endif %}
+                                                    </div>
+
+                                                    <div class="separator" style="width: 1px; background-color: #ccc; height: 100%; margin: 0 20px;"></div>
+    
+                                                    <div>
+                                                        <h4 class="text-uppercase mb-4 pb-1"><span class="fw-bold">{{user.plan}}</span></h4>
+
+                                                        {% if user.plan == 'Plata' %}
+                                                            <p class="text-muted">Hasta 3 usuarios</p>
+                                                            <p class="text-muted">Hasta 100 preguntas mensuales</p>
+                                                        {% elif user.plan == 'Oro' %}
+                                                            <p class="text-muted">Hasta 6 usuarios</p>
+                                                            <p class="text-muted">Hasta 100 preguntas mensuales</p>
+                                                        {% elif user.plan == 'Platino' %}
+                                                            <p class="text-muted">Hasta 10 usuarios</p>
+                                                            <p class="text-muted">Hasta 100 preguntas mensuales</p>
+                                                        {% endif %}
+
+                                                        <p class="text-muted">Fecha de Inicio: {{user.plan_start}}</p>
+                                                        <p class="text-muted">Fecha de Fin: {{user.plan_end}}</p>
+                                                        <div>
+                                                            <br><a class="button" href="">Cambiar Plan</a>
+                                                        </div>
+                                                    </div>
+
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="privacidad">
+                    <div id="first_part">
+                        <div>
+                            <h2>Privacidad</h2>
+                            <div>
+                                En Hergos, la privacidad es importante para nosotros. <br><br>
+                                Por eso, te ofrecemos la posibilidad de elegir qué información deseas compartir con nosotros. <br>
+                                <ul>
+                                    <li>Si deseas que tu información sea eliminada, puedes hacerlo en cualquier momento</li>
+                                    <li>Si deseas eliminar tu cuenta, puedes hacerlo en cualquier momento.</li>
+                                    <li>Si deseas guardar o eliminar la conversación, puedes hacerlo con el botón de guardar o eliminar</li>
+                                </ul>
+                                <br>Si tienes alguna duda sobre nuestra política de privacidad, puedes consultarla <a href="{% url 'policy' %}">aquí</a>.
+                            </div>
+                        </div>
+                    </div>
+                </section>
+        
+                <section id="seguridad">
+                    <div id="first_part">
+                        <div>
+                            <h2>Seguridad</h2>
+                            <div>
+                                <p>
+                                    Para garantizar la seguridad de tu cuenta, te recomendamos cambiar la contraseña regularmente. <br><br>
+                                    Si has olvidado tu contraseña, puedes cambiarla en cualquier momento. <br><br>
+                                    Si deseas eliminar tu cuenta, puedes hacerlo en cualquier momento. <br><br>
+                                </p>
+                                <a class="button" href="{% url 'home' %}">Cambiar Contraseña</a>              
+                                <a class="button" href="{% url 'user_login_delete' user.email %}">Eliminar Cuenta</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+        
+                <section id="ayuda">
+                    <div id="first_part">
+                        <div>
+                                <h2>Cómo Funciona</h2>
+                
+                                <div>Hergos es un chatbot que te ayudará a resolver tus dudas laborales. <br></div>
+                                <div>Solo tienes que escribir tu pregunta y te responderemos en base al convenio laboral y al estauto de los trabajadores.<br><br></div>
+                                <div>Para mayor precisión en la respuesta, puedes escribir información adicional de la empresa o de la situación laboral.<br><br></div>
+                                <div>Ejemplo: ¿Cuántos días de vacaciones me corresponden si trabajo en una empresa de 5 empleados en Madrid?<br><br></div>
+                                <div>Si quieres guardar la conversación para mayor rapidez en tus consultas, puedes hacerlo con el botón de guardar.</div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        
+
+        <script>
+            function showSection(sectionId) {
+                const sections = document.querySelectorAll('.content section');
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                document.getElementById(sectionId).classList.add('active');
+            }
+        </script>
+    </body>
+
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+</html>

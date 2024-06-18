@@ -1,0 +1,62 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Hergos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Hergos Ayuda" />
+    <meta name="keywords" content="Hergos, bot, laboral" />
+    <meta content="Themesbrand" name="Asesor Bot" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+
+    <!-- Favicons -->
+    <link rel="icon" href="{% static 'images/asesorbot2.png' %}" type="image/png" sizes="16x16">
+
+    <!-- CSS Files -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static '/css/styleblue.css' %}." rel="stylesheet" type="text/css" />
+    <link href="{% static '/css/user/configuracion.css' %}." rel="stylesheet" type="text/css" />
+
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body class="flex-grow-1" style="height: 100%; overflow: hidden;">
+   
+    {% block header %}
+    {%include "header_empty.html"%}
+    {% endblock %}
+
+    
+
+    <div class="signin flex-grow-1">
+        <div class="container in flex-grow-1">
+            
+            <a class="volver" href="{% url 'configuracion' %}">
+                <div class="circle">&larr;</div>
+                Volver
+            </a>
+
+            <form method="post" class="login-form" style="display: flex; flex-direction: column; max-height: 70vh; overflow-y: scroll; scroll-behavior: smooth; scrollbar-gutter: stable;">
+                <h2>Editar Información</h2>
+
+                {% csrf_token %}
+                {{ form.as_p }}
+
+                <button type="submit" class="button">Aceptar Cambios</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JS Files -->
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+    <script src="{% static 'js/main.js'%}"></script>
+</body>
+</html>

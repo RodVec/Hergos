@@ -1,0 +1,445 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Hergos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Hergos for better solutions" />
+    <meta name="keywords" content="Hergos, Asesor, bot, laboral" />
+    <meta content="Themesbrand" name="Hergos" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+
+    <!-- Favicons -->
+    <link rel="icon" href="{% static 'images/asesorbot2.png' %}" type="image/png" sizes="16x16">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- CSS Files -->
+    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+    
+    <link href="{% static '/css/styleblue.css' %}." rel="stylesheet" type="text/css" />
+    <link href="{% static '/css/user_view.css' %}." rel="stylesheet" type="text/css" />
+
+    <link href="{% static '/css/user/popup-historial.css' %}." rel="stylesheet" type="text/css" />
+    <link href="{% static '/css/user/popup-nombre.css' %}." rel="stylesheet" type="text/css" />
+    <link href="{% static '/css/user/popup-settings.css' %}." rel="stylesheet" type="text/css" />
+    <link href="{% static '/css/user/izq.css' %}." rel="stylesheet" type="text/css" />
+    <link href="{% static '/css/user/dch.css' %}." rel="stylesheet" type="text/css" />
+    <link href="{% static '/css/user/centro.css' %}." rel="stylesheet" type="text/css" />
+    <link href="{% static '/css/user/configuracion.css' %}." rel="stylesheet" type="text/css" />
+
+    <!-- Biblioteca fondos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha384-oSNzUnQ7Rl9YUJl2TJO4X2TQUD6s0j9PTVFtCofv1AEJea/IJ68Fsd15uP/tn5EB" crossorigin="anonymous">
+</head>
+
+<body onload="open()" style="overflow: hidden;">
+    {% block header %}
+    {% include "header_user.html" %}
+    {% endblock %}
+    
+    {{ redirect_to_login_immediately }}
+
+    
+    
+    
+
+    <!-- Columna izquierda -->
+    <div id="popup-izq">
+        <div class="izq-card">
+            <div class="izq-card-header">
+                Historial
+            </div>
+            <div class="izq-card-body" id="historialConversaciones">
+                <!-- Verifica si hay conversaciones en historialConversaciones -->
+                {% if historialConversaciones %}
+                    {% for key, conversacion in historialConversaciones.items %}
+
+                    {% endfor %}
+                {% else %}
+                    <p>No hay conversaciones guardadas</p>
+                {% endif %}
+            </div>                
+        </div>
+
+        <!-- Espacio para el nombre usuario -->
+        <div id="nombre-guardar-nuevo" class="mt-auto logout-container" style="text-align: justify;">
+            <button class="transparent-button" id="user-info-button">
+                <div class="user-circle">{{user.name.0|upper}}{{user.last_name.0|upper}}</div>
+            </button>
+            <button class="izq-button" onclick="NuevaConversacion()">
+                <i class="fas fa-comments fa-lg"></i> <p>Nuevo</p>
+            </button>
+            <button class="izq-button" onclick="guardarConversacionEnHistorial()">
+                <i class="far fa-save fa-lg"></i> <p>Guardar</p>
+            </button>
+        </div>
+
+        <!-- HTML para el cuadro emergente de logout y configuración -->
+        <div class="popup" id="popup-container">
+            <a class="popup-item" href="{% url 'ayuda' %}" target="_blank">Soporte</a>
+
+            <!-- <a class="popup-item" href="javascript:void(0);" onclick="openSettingsPopup()">Configuración</a> -->
+            <a class="popup-item" href="{% url 'configuracion' %}" target="_blank">Configuración</a>
+            <span class="popup-separator"></span>
+
+            <a class="popup-item" href="{% url 'logout' %}">Cerrar sesión</a>
+        </div>
+    </div>
+
+    <!-- Columna derecha -->
+    <div id="popup-dch" class="dch-container">
+        <div class="dch-row">
+            <div class="x">
+                
+                <div id="bienvenida" class="section-title text-center" style="margin-bottom: 13%;">
+                    <img src="{% static 'images/asesorbot.png' %}" alt="Hergos" style="width: 20%; height: 20%; display: block; margin-left: auto; margin-right: auto; margin-bottom: 8%;">
+                    <h2>Bienvenido a Hergos</h2>
+                </div>   
+
+                <div id="loading-spinner" style="display: none; text-align: center;">
+                    <i class="fas fa-spinner fa-spin"></i> Buscando Respuesta...
+                </div>
+
+                <div class="dch-form-group">
+                    <textarea class="dch-form-control" id="pregunta" placeholder="Inserta tu pregunta aquí"></textarea>
+    
+                    <!-- Botón con icono para Enviar -->
+                    <button class="dch-btn" onclick="mostrarTexto()">
+                        <i class="fa-solid fa-arrow-up"></i> 
+                    </button>
+                    
+                </div>
+    
+                <div class="dch-small-text">
+                    Hergos puede cometer fallos. Revisa la información importante.
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Centro -->
+    <div id="popup-cnt">
+        <div class="cnt-row">             
+    
+                <div id="textoMostrado" style="padding: 2%;"></div>
+
+                
+                <!-- Elemento para mostrar texto -->
+                <div id="greeting" class="greeting-text"></div>
+        </div>
+    </div>
+    
+
+    <div id="popup-historial" class="popup">
+        <div id="popupheader" class="popup-header">
+
+            <span class="close-popup-btn" onclick="closeConversationPopup()">&times;</span>
+        </div>
+
+        <div id="popup-content-historial">
+            <!-- Contenido del popup -->
+        </div>
+    </div>
+
+    
+    <!-- Script para mostrar y almacenar el texto y enviarlo al backend -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <script>
+        function open() {
+            document.getElementById('popup-izq').style.display = 'block';
+            document.getElementById('popup-dch').style.display = 'block';
+        }
+    </script>
+
+    <!-- nueva conversacion -->
+    <script>
+        function NuevaConversacion() {
+            // var confirmacion = confirm("¿Estás seguro de que deseas emepezar una conversación nueva?");
+            
+            // if (confirmacion) {
+            // Borra la conversación y actualiza la visualización
+            conversacion = [];
+            mostrarConversacion();
+            document.getElementById("bienvenida").style.display = "block";
+            // }
+        }
+    </script>
+
+    <!-- historial conversaciones-->
+    <script>
+        // Agrega el historial de conversaciones al cargar la página
+        document.addEventListener('DOMContentLoaded', function () {
+            mostrarHistorialConversaciones();
+        });
+    
+        function guardarConversacionEnHistorial() {
+            // Obtiene el user.id del contexto de usuario
+            var userId = '{{ user.id }}';
+
+            // Recupera la conversación previamente guardada del almacenamiento local
+            var conversacionGuardada = JSON.parse(localStorage.getItem('historialConversaciones_' + userId)) || {};
+
+            var conversationId = prompt("Nombre de la conversación:");
+            if (conversationId === null) {
+                return; // Detener la ejecución si el usuario cancela la operación
+            }
+            if (conversacionGuardada.hasOwnProperty(conversationId)) {
+                alert("El nombre ya existe, por favor, elija otro nombre");
+                return; // Detener la ejecución si el nombre ya existe
+            }
+
+            // Guarda la conversación actual en el historial específico del usuario
+            conversacionGuardada[conversationId] = conversacion.map(function(mensaje) {
+                return { tipo: mensaje.tipo, texto: mensaje.texto, contexto: 'historial' }; // Añade el contexto 'historial' a cada mensaje
+            });
+
+            // Guarda la conversación en el almacenamiento local
+            localStorage.setItem('historialConversaciones_' + userId, JSON.stringify(conversacionGuardada));
+
+            // Muestra el historial actualizado
+            mostrarHistorialConversaciones();
+        }
+    
+        function mostrarHistorialConversaciones() {
+            // Obtiene el contenedor donde quieres mostrar los botones de conversación
+            var historialConversacionesDiv = document.getElementById("historialConversaciones");
+            historialConversacionesDiv.innerHTML = "";
+
+            // Obtiene el user.id del contexto de usuario
+            var userId = '{{ user.id }}';
+
+            // Recupera la conversación guardada del almacenamiento local
+            var conversacionGuardada = JSON.parse(localStorage.getItem('historialConversaciones_' + userId)) || {};
+
+            // Itera sobre las claves del objeto (que representan los identificadores de conversación)
+            for (var conversationId in conversacionGuardada) {
+                if (conversacionGuardada.hasOwnProperty(conversationId)) {
+                    // Crea un botón para mostrar la conversación en un popup
+                    var botonMostrar = '<buttonclass="izq-bt" onclick="mostrarConversacionPopup(\'' + conversationId + '\')">' + conversationId + '</button>';
+                    var botonBorrar = '<button class="izq-bt" onclick="borrarConversacion(\'' + conversationId + '\')"><i class="fa-solid fa-trash"></i></button>';
+                    var botonEditar = '<button class="izq-bt" onclick="editarConversacion(\'' + conversationId + '\')"><i class="fa-regular fa-pen-to-square"></i></button>';
+                    // Agregar un espacio entre el botón "Borrar" y "Editar"
+                    historialConversacionesDiv.innerHTML += '<div class="izq-hist">' + botonMostrar + '<span>&nbsp;</span>' + botonEditar + botonBorrar +'</div>';
+                    historialConversacionesDiv.innerHTML += '<br>';
+                }
+            }
+        }
+
+
+
+    
+        // Función para mostrar una conversación específica en un popup
+        function mostrarConversacionPopup(conversationId) {
+            // Obtiene el user.id del contexto de usuario
+            var userId = '{{ user.id }}';
+
+            // Recupera la conversación guardada del almacenamiento local
+            var conversacionGuardada = JSON.parse(localStorage.getItem('historialConversaciones_' + userId)) || {};
+            var conversacionSeleccionada = conversacionGuardada[conversationId];
+
+            var popupContent = '<div>';
+            for (var i = 0; i < conversacionSeleccionada.length; i++) {
+                var mensaje = conversacionSeleccionada[i];
+                var claseCSS = (mensaje.tipo === "usuario") ? "user-responses" : "advisor-responses";
+
+                popupContent += '<div class="' + claseCSS + '">' + mensaje.texto + '</div>';
+            }
+            popupContent += '</div>';
+
+            // Muestra el popup dentro del contenedor específico
+            var popupContainer = document.getElementById("popup-content-historial");
+            var popupHeader = document.getElementById("popupheader");
+            popupContainer.innerHTML = popupContent;
+            popupHeader.innerHTML = '<h3>' + conversationId + '<h3>';
+            
+            // document.getElementById("popupheader").innerText = document.getElementById("popupheader").innerText.toUpperCase();
+
+            // Muestra el contenedor del popup
+            openConversationPopup();
+        }
+
+    
+        // Función para borrar una conversación específica
+        function borrarConversacion(index) {
+            // Obtiene el user.id del contexto de usuario
+            var userId = '{{ user.id }}';
+    
+            // Recupera la conversación guardada del almacenamiento local
+            var conversacionGuardada = JSON.parse(localStorage.getItem('historialConversaciones_' + userId)) || [];
+    
+            // Elimina la clave específica del objeto
+            delete conversacionGuardada[index];
+
+            // Guarda la conversación actualizada en el historial específico del usuario
+            localStorage.setItem('historialConversaciones_' + userId, JSON.stringify(conversacionGuardada));
+            // Muestra el historial actualizado
+            mostrarHistorialConversaciones();
+            closeConversationPopup();
+        }
+        
+        // Función para editar nombre de conversación específica
+        function editarConversacion(conversationId) {
+            closeConversationPopup();
+            var userId = '{{ user.id }}';
+            var conversacionGuardada = JSON.parse(localStorage.getItem('historialConversaciones_' + userId)) || [];
+
+            // Pedir al usuario que ingrese el nuevo nombre
+            var nuevoNombre = prompt("Editar nombre de la conversación:", conversationId);
+            
+            // Actualizar el nombre en el objeto y en el almacenamiento local si el usuario proporciona un nuevo nombre
+            if (nuevoNombre !== null) { // Si el usuario no cancela la operación
+                if (conversacionGuardada.hasOwnProperty(nuevoNombre)) {
+                    alert("El nombre ya existe, por favor, elija otro nombre");
+                    return; // Detener la ejecución si el nombre ya existe
+                }
+                a = conversacionGuardada[conversationId];
+                delete conversacionGuardada[conversationId];
+                conversacionGuardada[nuevoNombre] = a;
+                localStorage.setItem('historialConversaciones_' + userId, JSON.stringify(conversacionGuardada));
+            }
+            mostrarHistorialConversaciones()
+        }
+
+
+        function openConversationPopup() {
+            document.getElementById('popup-historial').style.display = 'block';
+        }
+
+        function closeConversationPopup() {
+            document.getElementById('popup-historial').style.display = 'none';
+        }
+        
+        // Agregar un event listener al documento para escuchar el evento de presionar teclas
+        document.addEventListener("keydown", function(event) {
+            // Verificar si la tecla presionada es la tecla "Esc" (cuyo código es 27)
+            if (event.keyCode === 27) {
+                // Ejecutar la función closeConversationPopup
+                closeConversationPopup();
+                closeSettingsPopup();
+            }
+        });
+
+    </script>
+
+
+    <!-- Configuracion -->
+    <script>
+
+        function closeSettingsPopup() {
+            // Ocultar el contenedor adicional al cerrar el popup
+            var separatorAndTextContainer = document.getElementById('additional-content');
+            separatorAndTextContainer.style.display = 'none';
+
+            // Restaurar el contenido del texto
+            var additionalText = document.getElementById('additional-text');
+            additionalText.innerHTML = '';
+            
+            // Cerrar el popup normalmente
+            document.getElementById('settings-popup').style.display = 'none';
+        }
+
+    </script>
+
+
+    <!-- Script para mostrar y ocultar el popup del nombre -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var userInfoButton = document.getElementById('user-info-button');
+            var popupContainer = document.getElementById('popup-container');
+
+            userInfoButton.addEventListener('click', function (event) {
+                closeConversationPopup()
+                event.stopPropagation(); // Evita que el clic se propague y cierre inmediatamente el popup
+
+                // Calcula las coordenadas del botón para posicionar el popup encima de él
+                var rect = userInfoButton.getBoundingClientRect();
+                var top = (window.scrollY + rect.bottom)*0.98; // Ajusta la posición para que aparezca encima, considerando el desplazamiento vertical
+                var left = rect.left + rect.width + 5; // Ajusta la posición a la derecha del botón
+
+                // Aplica las coordenadas al popup
+                popupContainer.style.bottom = (window.innerHeight - top) + 'px'; // Calcula la posición con respecto al borde inferior de la ventana
+                popupContainer.style.left = left + 'px';
+
+                // Muestra u oculta el popup
+                popupContainer.style.display = (popupContainer.style.display === 'none' || popupContainer.style.display === '') ? 'block' : 'none';
+            });
+
+            document.addEventListener('click', function (event) {
+                if (!event.target.closest('#user-info-button') && !event.target.closest('#popup-container')) {
+                    popupContainer.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
+    <!-- Backend -->
+    <script>
+
+        var conversacion = [];
+
+        function enviarAlBackend(textoIngresado) {
+            document.getElementById("loading-spinner").style.display = "block";
+
+            fetch("http://localhost:8000/get_response", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ pregunta: textoIngresado }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                var mensajeAsesor = { tipo: "asesor", texto: data.response };
+                conversacion.push(mensajeAsesor);
+                mostrarConversacion();
+                document.getElementById("loading-spinner").style.display = "none";
+            })
+            .catch(error => {console.error("Error:", error); document.getElementById("loading-spinner").style.display = "none";});
+        }
+
+
+        function mostrarTexto() {
+            var textoIngresado = document.getElementById("pregunta").value;
+            var mensajeUsuario = { tipo: "usuario", texto: textoIngresado };
+            conversacion.push(mensajeUsuario);
+            enviarAlBackend(textoIngresado);
+            document.getElementById("pregunta").value = "";
+        }
+
+        function mostrarConversacion() {
+            var textoMostradoDiv = document.getElementById("textoMostrado");
+            textoMostradoDiv.innerHTML = "";
+
+            for (var i = 0; i < conversacion.length; i++) {
+                var mensaje = conversacion[i];
+                var claseCSS = (mensaje.tipo === "usuario") ? "user-response" : "advisor-response";
+                textoMostradoDiv.innerHTML += '<div class="' + claseCSS + '">' + mensaje.texto + '</div>';
+            }
+            
+            // Ocultar la bienvenida después de la primera pregunta
+            document.getElementById("bienvenida").style.display = "none";
+        }
+
+        document.getElementById("pregunta").addEventListener("keydown", function (e) {
+            if (e.key === "Enter" && !e.shiftKey) {
+                e.preventDefault();
+                mostrarTexto();
+            }
+        });
+    </script>
+
+    <!-- Template Main JS File -->
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>
