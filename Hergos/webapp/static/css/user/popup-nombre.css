@@ -1,0 +1,35 @@
+/* CSS para el cuadro emergente del nombre*/
+#popup-container {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    z-index: 1000;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -9999px; /* Posiciona el popup inicialmente fuera de la pantalla */
+    margin-bottom: 50px;
+    border-radius: 5px; /* Añade esquinas redondeadas al popup */
+    transition: background 0.3s; /* Agrega una transición para suavizar el cambio de color de fondo */
+}
+
+.popup-item {
+    display: block;
+    text-decoration: none;
+    color: #333;
+    margin: 5px;
+
+    
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px; /* Tamaño de fuente del botón de logout */
+    font-weight: bold; /* Grosor de fuente del botón de logout */
+}
+.popup-separator {
+    display: inline-block;
+    height: 1px; /* Ancho de la línea separadora */
+    width: 100%; /* Altura de la línea separadora */
+    background-color: #ccc; /* Color de la línea separadora */
+}

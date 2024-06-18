@@ -1,0 +1,40 @@
+ /* Estilos para el contenedor principal */
+ #first_part {
+    width: 65%;
+    padding: 3%;
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+}
+
+/* Estilos para los elementos del formulario */
+form {
+    text-align: left;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+div {
+    margin-bottom: 10px;
+}
+
+/* Estilos para los botones */
+.button {
+    background-color: #002d88;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #001c55;
+}
