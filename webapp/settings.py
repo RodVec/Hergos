@@ -36,7 +36,7 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
 ]
 
-STATICFILES_DIRS = ["C:/Users/rodri/Documents/AAA RVH/Mi empresa/AsesorBot/Django/AsesorBot/webapp/static"]
+STATICFILES_DIRS = [".webapp/static"]
 
 # Application definition
 
@@ -75,7 +75,7 @@ ROOT_URLCONF = 'webapp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:/Users/rodri/Documents/AAA RVH/Mi empresa/AsesorBot/Django/AsesorBot/webapp/templates'],
+        'DIRS': ['.webapp/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
